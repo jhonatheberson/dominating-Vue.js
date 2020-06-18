@@ -1,0 +1,36 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ titulo }}</p>
+  <p>{{ saudacao() }}</p>
+  <a v-bind:href="link">Google</a
+  ><!--"v-bind" é uma diretiva-->
+  <!--o que é uma diretiva? é recurso do html, propiedades personalizadas, e views pwga elas para alterar dados no html-->
+  <!--o "v-bind:[nome], ele faz a conexão (ligação) com methodo href (link)-->
+  <!--padrão doucle start = "{{ metodo }}"-->
+  <!--lê o que esta dentro do codigo e substitui por alguma coisa (interpolar)-->
+  <!--aqui estou chamando o metodo saudação-->
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      titulo: "Usando VueJS!",
+      link: "http://google.com.br",
+    },
+    methods: {
+      saudacao: function () {
+        //outro jeito de fazer um metono ou "saudação()"
+        //method para retornar o string
+        //this é stancia do vue nesse contexto
+        //não posso ter uma data como mesmo nome e metodo, pois dar conflito
+        console.log(this);
+        this.titulo; //acessando o titulo
+      },
+      // titulo() {
+      //   return "não pode ter data com mesmo nome do metodo";
+      // },
+    },
+  });
+</script>

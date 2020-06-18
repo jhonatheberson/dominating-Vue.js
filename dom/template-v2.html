@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ titulo }}</p>
+  <p>{{ saudacao() }}</p>
+  <!--padrão doucle start = "{{ metodo }}"-->
+  <!--lê o que esta dentro do codigo e substitui por alguma coisa (interpolar)-->
+  <!--aqui estou chamando o metodo saudação-->
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      titulo: "Usando VueJS!",
+    },
+    methods: {
+      saudacao: function () {
+        //outro jeito de fazer um metono ou "saudação()"
+        //method para retornar o string
+        return "Boa semana!";
+      },
+    },
+  });
+</script>

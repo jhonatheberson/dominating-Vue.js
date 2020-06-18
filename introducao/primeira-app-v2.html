@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <input type="text" v-on:input="alterarTitulo" />
+  <!--"v-on:[nome do vento]" é para chamar metodos, nesse caso de input-->
+  <p>{{titulo}}</p>
+  <!--   "{{[nome]}} = dobluo start - interpola (interpretado) pelo framework (vue)" -->
+</div>
+
+<script>
+  new Vue({
+    el: "#app", //aqui estou dizendo qual o trecho que quero controlar no vue
+    data: {
+      //um objeto, que dis o que quero colocar no meu template
+      titulo: "Usando VueJS 2!",
+    },
+    methods: {
+      //são metodos que acontece no html (eventos)
+      alterarTitulo(event) {
+        // esse é primeiro metodo que é usado para alterar o titulo
+        this.titulo = event.target.value;
+      },
+    },
+  });
+</script>
