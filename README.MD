@@ -54,6 +54,68 @@
 
 `node -v` = mostra a versão instalada no pc
 
+- # atalhos visual code
+
+## atalho 1
+
+```
+div#conteudo
+```
+
+vai gerar isso div com id="conteudo":
+
+```
+<div id="conteudo"></div>
+```
+
+## atalho 2
+
+```
+div.estilo
+```
+
+vai gerar classe com class="estilo-1"
+
+```
+<div class="estilo-1"></div>
+```
+
+## atalho 3
+
+```
+div#conteudo.estilo-2
+```
+
+vai gerar classe com class="estilo-2" e id="conteudo"
+
+```
+<div id="conteudo" class="estilo-2"></div>
+```
+
+## atalho 4
+
+```
+img[src]
+```
+
+vai gerar img com tag src=""
+
+```
+<img src=" alt="">
+```
+
+## atalho 5
+
+```
+p[jhonat-teste]#texto.estilo-3
+```
+
+vai gerar paragrafo com propriedade personalizada "jhonat-teste", id="texto", class="estilo-3"
+
+```
+<p jhonat-teste="" id="texto" class="estilo-3"></p>
+```
+
 - # yarn
   _instalar bibliotecas de terceiros_
 

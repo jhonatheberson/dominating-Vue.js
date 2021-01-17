@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <p v-once>{{ titulo }}</p>
+  <!--"v-onde", faz que seja renderizado apenas uma vez o trecho do html-->
+  <p>{{ saudacao() }}</p>
+  <a v-bind:href="link">Google</a
+  ><!--"v-bind" é uma diretiva-->
+  <hr />
+  <p v-html="linkHtml"></p>
+  <!--o que é uma diretiva? é recurso do html, propiedades personalizadas, e views pwga elas para alterar dados no html-->
+  <!--o "v-bind:[nome], ele faz a conexão (ligação) com methodo href (link)-->
+  <!--padrão double start = "{{ metodo }}"-->
+  <!--lê o que esta dentro do codigo e substitui por alguma coisa (interpolar)-->
+  <!--aqui estou chamando o metodo saudação-->
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      titulo: "Usando VueJS!",
+      link: "http://google.com.br",
+      linkHtml: '<a href="http://google.com.br">Google</a>',
+    },
+    methods: {
+      saudacao: function () {
+        this.titulo = "Bom dia!!!";
+        return this.titulo; //acessando o titulo
+      },
+    },
+  });
+</script>
