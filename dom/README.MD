@@ -61,4 +61,36 @@
 
   [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/eventos-v2.html)
 
-  ##
+  ## passando nossos proprios argumentos com eventos
+
+  `$event` é palavra reservada, mas `ev` não é palavra reservado então pode ser qualquer nome, e a ordem não importa dos parametros nesse caso.
+
+```
+ <button v-on:click="somar(5, $event)">Somar 1</button>
+  somar(passo, ev) {
+        console.log(passo, ev);
+        this.contador += passo;
+      },
+```
+
+## Modficadores de eventos
+
+- ## stop
+
+  serve para controlar quando sera executado ou parado o evento `stop` quando o evento `mousemove` executar nesse span ele vai parar esse mesmo evento
+
+  ```
+  <span v-on:mousemove.stop=""> PARAR AQUI!!!</span>
+  ```
+
+- ## prevent
+
+  podemos também previnir um comportamento padrão do navegador ou seja aquilo que ele é para fazer não vai mais usandon `prevent`
+
+  ```
+  <a v-on:click.prevent="" href="http://google.com">Google</a>
+  ```
+
+  por exemplo nesse caso ele deveria lincar para o google que é comportamento padrão porém devido ao `prevent` não vai ao clicar ir para google
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/eventos-v4.html)
