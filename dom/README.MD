@@ -75,6 +75,8 @@
 
 ## Modficadores de eventos
 
+[documentação](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
+
 - ## stop
 
   serve para controlar quando sera executado ou parado o evento `stop` quando o evento `mousemove` executar nesse span ele vai parar esse mesmo evento
@@ -94,3 +96,27 @@
   por exemplo nesse caso ele deveria lincar para o google que é comportamento padrão porém devido ao `prevent` não vai ao clicar ir para google
 
   [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/eventos-v4.html)
+
+## Eventos de teclado
+
+[documentação](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
+
+## keyup
+
+modificador de evento quando executado um avento do teclado
+
+```
+<input type="text" v-on:keyup="exibirAlerta" />
+```
+
+## enter
+
+```
+<input type="text" v-on:keyup.enter="exibirAlerta" />
+```
+
+também podemos encadear da seguinte forma
+
+```
+<input type="text" v-on:keyup.enter.alt="exibirAlerta" />
+```
