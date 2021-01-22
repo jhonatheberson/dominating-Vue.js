@@ -33,7 +33,7 @@
 
   [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/template-v6.html)
 
-  # Eventos
+- # Eventos
 
   ## v-on
 
@@ -156,3 +156,28 @@ o double mostart pode fazer expressões simples de uma linha exemplo:
 logo podemos beneficiar desse comportamento.
 
 [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/interpolacao.html)
+
+- # Usando Two-Way-Binding
+
+  isso é usado para quando alterar o html támbem alterar o Vue.js, o inverso já é feito automaticamento.
+
+  ```
+    <p>{{ titulo }}</p>
+    <input
+      type="text"
+      v-bind:value="titulo"
+      v-on:input="titulo = $event.target.value"
+    />
+
+  ```
+
+  existe uma diretiva de evento que já faz isso de uma vez, ou seja executa a `v-bind`, e `v-on` e se chama `v-model`
+
+  ## v-model
+
+  ```
+  <input type="text" v-model="titulo" />
+  ```
+
+  isso garante o **Two-Way-Binding** dessa forma atualiza as duas direções: html => Vue,e
+  Vue => Html
