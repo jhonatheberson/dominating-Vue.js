@@ -181,3 +181,23 @@ logo podemos beneficiar desse comportamento.
 
   isso garante o **Two-Way-Binding** dessa forma atualiza as duas direções: html => Vue,e
   Vue => Html
+
+- # Propriedades computadas
+
+metodos computados não são chamados como função e sim metodos, ele sabe qual os dados a qual quer alterar.
+esse calculo é alterado somente quando é necessario, e depende dela.
+
+```
+<p>Resultado: {{ resultado }}</p>
+```
+
+dessa forma o `contador2` quando é executado não executa resultado.
+
+```
+ computed: {
+      resultado() {
+        console.log("metodo computed resultado chamado...");
+        return this.contador >= 5 ? "Maior ou igual a 5" : "Menor que 5";
+      },
+    },
+```
