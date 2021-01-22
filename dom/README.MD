@@ -135,3 +135,24 @@ modificador de evento quando a tecla do teclado é apertada
 ```
 
 [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/desafio-02)
+
+ou posso usar sem declarar função dessa forma:
+
+```
+<input type="text" v-on:keyup="valor = $event.target.value">
+```
+
+[codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/desafio-02-resp)
+
+## interpolação
+
+o double mostart pode fazer expressões simples de uma linha exemplo:
+
+```
+  <p>{{ contador }}</p>
+  <p>{{ contador > 10 ? 'Maior que 10': 'Menor do que 10'}}</p>
+```
+
+logo podemos beneficiar desse comportamento.
+
+[codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/interpolacao.html)
