@@ -120,3 +120,18 @@ também podemos encadear da seguinte forma
 ```
 <input type="text" v-on:keyup.enter.alt="exibirAlerta" />
 ```
+
+## keydown
+
+modificador de evento quando a tecla do teclado é apertada
+
+```
+<input type="text" v-on:keydown.enter="armazenarValue" />
+
+ armazenarValue(event) {
+      console.log(event.target.value);
+      this.valor = event.target.value;
+    },
+```
+
+[codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/desafio-02)
