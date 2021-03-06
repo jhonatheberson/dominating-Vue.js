@@ -205,3 +205,64 @@ logo podemos beneficiar desse comportamento.
   ```
 
   [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/propriedades-reativas-v2.html)
+
+- # monitorando mudanças (watch)
+
+  serve para monitorar mudanção e fazer resposta a essa mudança (asincrona) o retorna não precisa estra pronto ao fim da execução dos whatch ou seja, pode ser realizado asincrona.
+
+  ```
+  <p>Resultado: {{ resultado }}</p>
+  ```
+
+  dessa forma o `contador2` quando é executado não executa resultado.
+
+  ```
+  watch: {
+      contador(novo, antigo) {
+        // sempre é passado o valor novo e antigo da função ou metodo que estou monitorando
+        console.log(novo, antigo);
+        setTimeout(() => {
+          this.contador = 0
+        }, 2000)
+      },
+    },
+  ```
+
+  ou sem **erion function**
+
+  ```
+  watch: {
+        contador(novo, antigo) {
+          console.log(novo, antigo);
+          const instanciaVue = this
+          setTimeout(function() {
+            instanciaVue.contador = 0
+          }, 2000)
+        },
+      },
+  ```
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/propriedades-reativas-v3.html)
+
+  ## moral da historia, propriedades computadas, são sincronas, ao seja, assim que é chamada precisa retornar o valor e **watch** é asincrona, ou seja monitora o combo box de cidade e quando mudar ele faz outra requisição ajax para mudar o valores do outro combo box de estado um exemplo
+
+- # sintaxe reduzida
+
+  podemos reduzir a sintaxe dessa forma, **v-on** é e mesma coisa que **@**.
+  e **v-bind** é mesma coisa que **:**
+
+  ```
+  <div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="somar">Somar 1</button>
+    <!-- o "@" é igual ao v-on -->
+    <button @click="somar">Somar 1</button>
+    <hr />
+    <input type="text" v-bind:value="contador" />
+    <!-- o : é igual ao v-bind -->
+    <input type="text" :value="contador" />
+  </div>
+
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/sintaxe-reduzida.html)
+  ```
