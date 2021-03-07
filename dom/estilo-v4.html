@@ -1,0 +1,63 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+  .caixas {
+    display: flex;
+    justify-content: space-between;
+  }
+  .demo {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+  }
+
+  .c1 {
+    background-color: red;
+  }
+
+  .c2 {
+    background-color: green;
+  }
+
+  .c3 {
+    background-color: blue;
+  }
+
+  .girar {
+    transform: rotate(45deg);
+  }
+</style>
+
+<div id="app">
+  <div class="caixas">
+    <!-- propriedades especificas para aplicar estilos -->
+    <div class="demo" :style="{'background-color':cor}"></div>
+    <!-- usando came-case das propriedades javascript -->
+    <div class="demo" :style="{backgroundColor:cor}"></div>
+    <div class="demo" :style="[meuEstilo, {height: altura}]"></div>
+    <div class="demo"></div>
+  </div>
+  <hr />
+  <input type="text" v-model="cor" />
+  <input type="text" v-model="largura" />
+</div>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      cor: "red",
+      largura: 100,
+      altura: 10,
+    },
+    computed: {
+      // metodo computed para aplicar estilos é melhor forma
+      meuEstilo() {
+        return {
+          backgtoundColor: this.cor,
+          // width: `${this.largura}px`,
+          width: this.largura + "px",
+        };
+      },
+    },
+  });
+</script>

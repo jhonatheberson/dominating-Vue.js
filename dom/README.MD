@@ -210,6 +210,8 @@ logo podemos beneficiar desse comportamento.
 
   serve para monitorar mudanção e fazer resposta a essa mudança (asincrona) o retorna não precisa estra pronto ao fim da execução dos whatch ou seja, pode ser realizado asincrona.
 
+  ### ter cuidado porque pode ficar no loop infinito
+
   ```
   <p>Resultado: {{ resultado }}</p>
   ```
@@ -262,7 +264,107 @@ logo podemos beneficiar desse comportamento.
     <!-- o : é igual ao v-bind -->
     <input type="text" :value="contador" />
   </div>
-
+  ```
 
   [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/sintaxe-reduzida.html)
+
+- # estilo dinâmico
+
+  para aplicar estilo dinamicamente, precisamos aplicar fazer dessa forma:
+
   ```
+  <div id="app">
+    <div
+      class="demo"
+      :class="{c1: aplicarC1}"
+      @click="aplicarC1 = !aplicarC1"
+    ></div>
+    <div
+      class="demo"
+      :class="{'cor-2': aplicarC1}"
+      @click="aplicarC1 = !aplicarC1"
+    ></div>
+    <div class="demo"></div>
+  </div>
+  ```
+
+  ### **c1** é uma classe _css_ e **aplicarC1** é um data booleano, quando aplicarC1 é true, aplicamos a com atraves de _v-bind_ ou _:_
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/estilo-v1.html)
+
+- # estilo dinâmico com metodo computed
+
+  para aplicar estilo dinamicamente, precisamos aplicar com metodo computed para fazer de forma mais emxuta (clean)
+
+  ```
+  <div id="app">
+  <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
+  <div
+    class="demo"
+    :class="{'cor-2': aplicarC1}"
+    @click="aplicarC1 = !aplicarC1"
+  ></div>
+  <div class="demo"></div>
+  </div>
+  <script>
+  new Vue({
+    el: "#app",
+    data: {
+      aplicarC1: false,
+    },
+    computed: {
+      estilo1() {
+        return {
+          c1: this.aplicarC1,
+          c2: !this.aplicarC1,
+        };
+      },
+    },
+  });
+  </script>
+  ```
+
+  ### **c1** é uma classe _css_ e **aplicarC1** é um data booleano, quando aplicarC1 é true, aplicamos a com atraves de _v-bind_ ou _:_ a difirença que colocamos em um metodo computed para ser mais clean
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/estilo-v2.html)
+
+- # estilo dinâmico com array
+
+  para aplicar estilo dinamicamente, precisamos aplicar com um array
+
+  ```
+  <div id="app">
+    <div class="caixas">
+      <div class="demo" :class="estilo1" @click="aplicarC1 = !aplicarC1"></div>
+      <div class="demo" :class="estilo1"></div>
+      <!-- aplicar varias estilização com array -->
+      <div class="demo" :class="[classeCSS, {'girar': aplicarGirar}]"></div>
+    </div>
+    <hr />
+    <input type="text" v-model="classeCSS" />
+  </div>
+  ```
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/estilo-v3.html)
+
+- # estilo diretamente na classe
+
+  vamos aplicar o estulo diretamente na classe usando **style**
+
+  ```
+  <div id="app">
+    <div class="caixas">
+      <!-- propriedades especificas para aplicar estilos -->
+      <div class="demo" :style="{'background-color':cor}"></div>
+      <!-- usando came-case das propriedades javascript -->
+      <div class="demo" :style="{backgroundColor:cor}"></div>
+      <div class="demo" :style="[meuEstilo, {height: altura}]"></div>
+      <div class="demo"></div>
+    </div>
+    <hr />
+    <input type="text" v-model="cor" />
+    <input type="text" v-model="largura" />
+  </div>
+  ```
+
+  [codigo aqui](https://github.com/jhonatheberson/dominating-vuejs/blob/master/dom/estilo-v4.html)
